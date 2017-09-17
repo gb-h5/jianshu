@@ -4,9 +4,13 @@
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
+import { PersonalCenterComponent } from './personal-center/personal-center.component';
+import { MyCollectionComponent } from './personal-center/my-collection/my-collection.component';
+import { MyLikeComponent } from './personal-center/my-like/my-like.component';
+import { PerIndexComponent } from './personal-center/per-index/per-index.component';
 
 import { NgModule } from '@angular/core';
-import {RouterModule, Route, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 const  appRoute: Routes = [
   {
     path: 'index',
@@ -22,8 +26,27 @@ const  appRoute: Routes = [
   },
   {
     path: '',
-    component: LoginComponent
+    component: IndexComponent
+  },
+  {
+    path: 'PersonalCenter',
+    component: PersonalCenterComponent,
+    children: [
+      {
+        path: 'collection',
+        component: MyCollectionComponent,
+      },
+      {
+        path: 'like',
+        component: MyLikeComponent,
+      },
+      {
+        path: 'perindex',
+        component: PerIndexComponent,
+      }
+    ]
   }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(appRoute)],

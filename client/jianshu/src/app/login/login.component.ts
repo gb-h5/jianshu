@@ -1,17 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {GlobalPropertyService} from './../services/global-property.service';
+import {UserServiceService} from './../services/user-service.service';
+
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-
-  constructor() { }
+export class LoginComponent {
+  login_res: string;
+  constructor(
+    private glo: GlobalPropertyService,
+    private userSer: UserServiceService,
+  private router: Router
+  ) { }
 
   ngOnInit() {
+    this.glo.hiddenNavs = false;
+    console.log('init' + this.glo.hiddenNavs);
   }
-  tologin(register_form){
-    console.log(register_form.form.value);
+  ngOnDestroy() {
+    this.glo.hiddenNavs = true;
   }
+
+  tologin(login_form){
+    let that = this;
+    that.userSer.login(login_form.form.value, function (result) {
+      console.log(login_form.form.value);
+      if(result.stageCode === 1) {
+        that.router.navigate(['/index', 3]);
+      }else {
+        alert(result.stageCode);
+        that.login_res = '用户名或密码错误';
+      }
+    });
+  }
+
 }

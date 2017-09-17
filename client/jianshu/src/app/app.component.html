@@ -1,10 +1,16 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="hiddenNavs">
     <div class="nav">
-      <a routerLink="/index" routerLinkActive="active"><h3 class="col-lg-2">简</h3></a>
-      <a routerLink="/index" routerLinkActive="active"><h3 class="col-lg-2">首页</h3></a>
-      <a routerLink="/login" routerLinkActive="active"><h3 class="col-lg-1 col-lg-offset-6">登陆</h3></a>
-      <a routerLink="/register" routerLinkActive="active"><h3 class="col-lg-1 ">注册</h3></a>
+      <ul class="nav-ul">
+        <li class="col-lg-2 col-md-2" routerLink="/index" routerLinkActive="active">简</li>
+        <li class="col-lg-2 col-md-2" routerLink="/index" routerLinkActive="active">首页</li>
+
+
+        <li class="col-lg-1 col-md-1 col-lg-offset-4" routerLink="/login" routerLinkActive="active">登陆</li>
+        <li class="col-lj-1 col-md-1" routerLink="/register" routerLinkActive="active">注册</li>
+        <li class="col-lj-1 col-md-1" routerLink="/PersonalCenter" routerLinkActive="active">per</li>
+      </ul>
+
     </div>
   </div>
 </div>

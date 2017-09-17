@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import {GlobalPropertyService} from './../services/global-property.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  constructor() { }
+  constructor(
+    private glo: GlobalPropertyService
+  ) { }
 
   ngOnInit() {
+    this.glo.hiddenNavs = false;
+    console.log('init' + this.glo.hiddenNavs);
   }
-toRegister(register_form){
-    console.log(register_form.form.value);
-}
+  ngOnDestroy() {
+    this.glo.hiddenNavs = true;
+
+  }
 }

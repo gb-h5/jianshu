@@ -1,0 +1,117 @@
+.container{
+  padding:0;
+  margin:0;
+  width: 100%;
+  /*background-color: #5bc0de;*/
+}
+.nav-ul{
+  list-style:none;
+}
+
+.nav-ul li{
+  float: left;
+  font-size: 2rem;
+}
+.nav-ul li span{
+  display: block;
+}
+.nav-ul .perNav:hover .drop-list{
+  display: block;
+}
+.nav-ul li .drop-list{
+  display: none;
+  list-style: none;
+  position: relative;
+  left: -7vh;
+  width: 15vw;
+}
+.nav-ul .perNav .drop-list li{
+  display: block;
+  position: relative;
+  height: 30px;
+  float: left;
+  line-height: 40px;
+  padding: 0 12px;
+  margin-bottom: 7px;
+}
+.my-center{
+  margin-top: 4vh;
+}
+.my-center .left{
+  /*background-color: pink;*/
+}
+.my-center .head{
+  display: inline-block;
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+}
+
+.my-center .head img{
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+}
+.my-center .details{
+  position: relative;
+  top:30px;
+  display: inline-block;
+  height: 7vw;
+  margin-left: 1vw;
+}
+.my-center .details .user-name{
+  font-weight: 800;
+  font-size: 2rem;
+}
+.my-center .details .details_nav{
+  margin-top: 1rem;
+}
+.my-center .details .details_nav ul{
+  padding-left: 0;
+  list-style: none;
+  overflow: hidden;
+}
+.my-center .details .details_nav li{
+   line-height: 2vh;
+   color: #aaaaaa;
+   float: left;
+  font-size: 1rem;
+ }
+.my-center .details .details_nav li strong{
+  color: black !important;
+}
+
+.my-center .details .details_nav ul>li+li{
+  padding-left: 8px;
+  margin-left: 8px;
+  border-left: 1px solid #ccc;
+}
+.my-center .list-nav ul{
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+.my-center .list-nav ul:after{
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+}
+.my-center .list-nav ul li{
+  color: #969696;
+  font-size: 2.5rem;
+  font-weight: 900;
+  float: left;
+}
+.my-center .list-nav ul li:hover{
+  border-bottom: 2px solid #646464;
+  cursor: pointer;
+  color: #646464;
+}
+.my-center .list-nav ul>li+li{
+margin-left: 10px;
+}
+
+
+
+
