@@ -18,6 +18,7 @@ import {PersonalCenterModule} from './personal-center/personal-center.module';
 
 import {GlobalPropertyService} from './services/global-property.service';
 import {UserServiceService} from './services/user-service.service';
+import { LocalStorage } from './services/localStorage.service';
 import { HttpClientModule } from '@angular/common/http';
 // import { provideRoutes} from '@angular/router';
 
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     PersonalCenterRoutingModule,
     HttpClientModule
   ],
-  providers: [GlobalPropertyService, UserServiceService , HttpClient],
+  providers: [GlobalPropertyService, UserServiceService , HttpClient, LocalStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

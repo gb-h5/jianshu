@@ -179,4 +179,4 @@ exports.formatLongString=function (str,len) {
     }
 }
 
-exports.secret='jobapp';
+exports.secret='jianshu';

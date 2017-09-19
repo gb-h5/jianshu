@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorage } from '../services/localStorage.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private localstorage: LocalStorage
+  ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('token')) {
+      console.log('已经登陆');
+    }
   }
 
 }
