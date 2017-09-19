@@ -12,12 +12,14 @@ import { PerIndexComponent } from './per-index/per-index.component';
 import { MyCollectionComponent } from './my-collection/my-collection.component';
 import { MyLikeComponent } from './my-like/my-like.component';
 import {GlobalPropertyService} from './../services/global-property.service';
+import { MyBlogComponent } from './my-blog/my-blog.component';
 @NgModule({
   declarations: [
     PersonalCenterComponent,
     PerIndexComponent,
     MyCollectionComponent,
-    MyLikeComponent
+    MyLikeComponent,
+    MyBlogComponent
   ],
   imports: [
     BrowserModule,

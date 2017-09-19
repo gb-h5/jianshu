@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { StartComponent } from './start/start.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { PersonalCenterRoutingModule } from './personal-center/personal-center-routing.module';
 
 import { FormsModule } from '@angular/forms';
 import { IndexComponent } from './index/index.component';
@@ -18,6 +19,7 @@ import {PersonalCenterModule} from './personal-center/personal-center.module';
 import {GlobalPropertyService} from './services/global-property.service';
 import {UserServiceService} from './services/user-service.service';
 import { HttpClientModule } from '@angular/common/http';
+// import { provideRoutes} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     PersonalCenterModule,
     AppRoutingModule,
+    PersonalCenterRoutingModule,
     HttpClientModule
   ],
-  providers: [GlobalPropertyService, UserServiceService ,HttpClient],
+  providers: [GlobalPropertyService, UserServiceService , HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

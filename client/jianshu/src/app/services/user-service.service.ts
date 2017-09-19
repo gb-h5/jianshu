@@ -8,8 +8,14 @@ export class UserServiceService {
   ) { }
 
 
+  register(user, callback) {
+    this.http.post('/api/register', user ).subscribe(function(result){
+      callback(result);
+    });
+  }
+
   login(user, callback) {
-    this.http.post('/api/users/login', user ).subscribe(function(result){
+    this.http.post('/api/login', user ).subscribe(function(result){
       callback(result);
     });
   }

@@ -3,6 +3,7 @@ import { GlobalPropertyService } from './../services/global-property.service';
 
 @Component({
   selector: 'app-personal-center',
+  template: '<router-outlet></router-outlet>',
   templateUrl: './personal-center.component.html',
   styleUrls: ['./personal-center.component.css'],
   providers: []

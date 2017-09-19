@@ -29,10 +29,10 @@ export class LoginComponent {
     let that = this;
     that.userSer.login(login_form.form.value, function (result) {
       console.log(login_form.form.value);
-      if(result.stageCode === 1) {
-        that.router.navigate(['/index', 3]);
+      if(result.code === 1) {
+        that.router.navigate(['/index']);
       }else {
-        alert(result.stageCode);
+        alert(result.code);
         that.login_res = '用户名或密码错误';
       }
     });

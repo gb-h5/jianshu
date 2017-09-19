@@ -31,20 +31,6 @@ const  appRoute: Routes = [
   {
     path: 'PersonalCenter',
     component: PersonalCenterComponent,
-    children: [
-      {
-        path: 'collection',
-        component: MyCollectionComponent,
-      },
-      {
-        path: 'like',
-        component: MyLikeComponent,
-      },
-      {
-        path: 'perindex',
-        component: PerIndexComponent,
-      }
-    ]
   }
 
 ];
