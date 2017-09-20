@@ -30,13 +30,15 @@ export class RegisterComponent {
     let that = this;
     that.userSer.register(login_form.form.value, function (result) {
       console.log(login_form.form.value);
-      if(result.code === 1) {
-        console.log('hello')
-        that.router.navigate(['/index']);
+      alert("here"+result.code)
+      if(result.success === true) {
+        sessionStorage.setItem('token',result.token)
+        alert(sessionStorage.getItem('token'))
+        that.router.navigate(['/home']);
       }else {
-        alert(result.code);
+
         that.register_res = '注册失败';
-        alert(that.register_res);
+        alert(result.message);
       }
     });
   }

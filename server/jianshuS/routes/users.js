@@ -26,11 +26,30 @@ router.post('/api/register', function(req, res, next) {
     if (mobile !== '' && password !== '' && nickname !== '') {
 
         userdao.addUser(mobile, nickname, password, function (result) {
-            if(result===1){
-                res.json({"code":1})
-            }else {
-                res.json({"code":2})
+
+
+            if(result=='0'){
+
+                var expires = moment().add(7, 'days').valueOf();
+                var token = jwt.encode({
+                    iss: mobile,
+                    exp: expires
+                }, utils.secret);
+
+                res.json({
+                    "success": true,
+                    "code": 0,
+                    "message": "注册成功",
+                    token:token
+                })
+                return
             }
+            //像这里就不用写else
+            res.json({
+                "success": false,
+                "code": 1,
+                "message": "用户已存在"
+            })
         })
         return
     }
@@ -48,8 +67,6 @@ router.post('/api/login', function(req, res, next) {
         var pass =utils.MD5(req.body.pass);
         userdao.attempLogin(user.telephone, pass, function (result) {
             if(result.length==1){
-
-
                 //产生token
                 var expires = moment().add(7, 'days').valueOf();
                 var token = jwt.encode({

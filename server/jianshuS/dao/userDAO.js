@@ -9,14 +9,14 @@ exports.userDao={
             }
             client.query('SELECT * FROM user WHERE tele=? AND password=?',
                 [mobile, password],function (error,result) {
-                if(error){
-                    console.log(error.message+' from getpasswordbyid');
-                    callback('e004');
-                    return;
-                }
-                callback(result);
-                client.release();
-            })
+                    if(error){
+                        console.log(error.message+' from getpasswordbyid');
+                        callback('e004');
+                        return;
+                    }
+                    callback(result);
+                    client.release();
+                })
         })
     },
     addUser:function (mobile, nickname, password, callback) {
@@ -25,16 +25,25 @@ exports.userDao={
                 callback(error)
                 return
             }
-            client.query('INSERT INTO user(tele, nickname, password) values (?, ?, ?)',
-                [mobile, nickname, password], function (error, result) {
-                    if (error){
-                        callback(error)
-                        return
-                    }
-                    callback(result.affectedRows)
-                    client.release()
+            client.query('select * from user where tele=?',[mobile], function (error, results, fields) {
+                if (!!results.length) {
+                    callback(1)
+                    return
                 }
-            );
+                // if not regitered
+                client.query('INSERT INTO user(tele, nickname, password, created_at) values (?, ?, ?, ?)',
+                    [mobile, nickname, password, new Date().toLocaleString()], function (error, result) {
+                        if (error){
+                            callback(error)
+                            return
+                        }
+                        callback(0)
+                        client.release()
+                    }
+                );
+            })
+
+
         })
     },
     createToken:function (telephone,token,callback) {
