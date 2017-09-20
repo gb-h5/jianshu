@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorage } from '../services/localStorage.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -9,12 +10,13 @@ import { LocalStorage } from '../services/localStorage.service';
 export class IndexComponent implements OnInit {
 
   constructor(
-    private localstorage: LocalStorage
+    private localstorage: LocalStorage,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    if(localStorage.getItem('token')) {
-      console.log('已经登陆');
+    if (sessionStorage.getItem('token')) {
+      this.router.navigate(['/home']);
     }
   }
 

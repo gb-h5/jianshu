@@ -4,6 +4,7 @@
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
+import { HomeComponent } from './home/home.component';
 import { PersonalCenterComponent } from './personal-center/personal-center.component';
 import { MyCollectionComponent } from './personal-center/my-collection/my-collection.component';
 import { MyLikeComponent } from './personal-center/my-like/my-like.component';
@@ -19,6 +20,10 @@ const  appRoute: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'register',

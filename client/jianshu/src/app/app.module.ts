@@ -20,6 +20,7 @@ import {GlobalPropertyService} from './services/global-property.service';
 import {UserServiceService} from './services/user-service.service';
 import { LocalStorage } from './services/localStorage.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 // import { provideRoutes} from '@angular/router';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     StartComponent,
     IndexComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

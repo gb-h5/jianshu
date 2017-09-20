@@ -31,13 +31,15 @@ export class LoginComponent {
   tologin(login_form){
     let that = this;
     that.userSer.login(login_form.form.value, function (result) {
-      console.log(login_form.form.value);
+      // console.log(login_form.form.value);
       if(result.code === 1) {
 
         //存储token到本地
-        that.localstorage.set('token',result.token);
-        alert('token'+that.localstorage.get('token'));
-        that.router.navigate(['/index']);
+        sessionStorage.setItem('token',result.token)
+        // that.localstorage.set('token',result.token);
+        // alert('token'+that.localstorage.get('token'));
+        alert(sessionStorage.getItem('token'))
+        that.router.navigate(['/home']);
       }else {
         alert(result.code);
         that.login_res = '用户名或密码错误';

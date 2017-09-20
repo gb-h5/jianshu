@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient,HttpHeaders,HttpParams} from '@angular/common/http';
 
 @Injectable()
 export class UserServiceService {
@@ -19,4 +19,12 @@ export class UserServiceService {
       callback(result);
     });
   }
-}
+
+  getUser(token,callback) {
+    let _head = new HttpHeaders({token: sessionStorage.getItem('token')});
+    this.http.get('/api/getUser', {headers: _head}).subscribe(function (result) {
+      callback(result);
+    });
+  }}
+
+

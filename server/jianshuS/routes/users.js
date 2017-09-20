@@ -12,6 +12,8 @@ var ct=require('./../utils/checkToken');
 
 
 
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -46,7 +48,7 @@ router.post('/api/login', function(req, res, next) {
         var pass =utils.MD5(req.body.pass);
         userdao.attempLogin(user.telephone, pass, function (result) {
             if(result.length==1){
-                console.log('here>>>>>>>>>>>>>.')
+
 
                 //产生token
                 var expires = moment().add(7, 'days').valueOf();
@@ -64,6 +66,21 @@ router.post('/api/login', function(req, res, next) {
     }
 
     return
+});
+
+router.get('/api/getUser',ct.checkToken,function (req, res, next) {
+
+    var decoded = jwt.decode(req.header('token'), utils.secret);
+    var userTel=decoded.iss;
+    console.log(userTel)
+    res.json({"userTel":userTel})
+
+    // console.log('headers');
+    // console.log(req.headers);
+    // console.log(req.header('token'));
+    //
+    // console.log('query');
+    // console.log(req.query);
 });
 
 module.exports = router;
