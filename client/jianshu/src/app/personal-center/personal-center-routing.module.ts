@@ -14,6 +14,11 @@ const  PerRoute: Routes = [
     path: 'PersonalCenter',
     component: PersonalCenterComponent,
     children: [
+      // {
+      //   path: '',
+      //   redirectTo: 'myblog',
+      //   pathMatch: 'full'
+      // },
       {
         path: 'collection',
         component: MyCollectionComponent,

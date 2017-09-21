@@ -1,8 +1,7 @@
 <!--导航条部分-->
 <!--<div class="top_nav">-->
-<div class="nav navbar-fixed-top top_header " style="background-color:#ffffff;border:1px solid #dddddd">
+<div class="nav navbar-fixed-top top_header" style="background-color:#ffffff;border:1px solid #dddddd">
   <div class="container-fluid" style="width:94%">
-
     <div class="top_container_left">
       <a [routerLink]="['']" class="log">
         <img src="../../assets/images/logo.png">
@@ -10,21 +9,20 @@
     </div>
     <div class="top_container_center">
       <a [routerLink]="['']" class="top_index">
-        <img src="../assets/images/nav.png" alt="" width="23px" height="23px">
+        <img src="../../assets/images/nav.png" alt="" width="23px" height="23px">
         <span>首页</span>
       </a>
       <div class="top_search">
         <input class="top_search_text" type="text" placeholder="搜索">
-        <span><img src="../assets/images/search.png" alt="" ></span>
+        <span><img src="../../assets/images/search.png" alt="" ></span>
       </div>
-      <a [routerLink]="['/login']" class="top_login">登录</a>
-      <span class="top_letter"><img src="../assets/images/Aa.png" alt=""></span>
+      <span class="top_letter"><img src="../../assets/images/Aa.png" alt=""></span>
     </div>
 
     <div class="top_container_right">
-      <a [routerLink]="['/register']" class="top_register">注册</a>
+      <a [routerLink]="['/PersonalCenter']" class="top_register">{{_nickname}}</a>
       <span class="top_write">
-        <img src="../assets/images/write.png" alt="">
+        <img src="../../assets/images/write.png" alt="">
         <span>写文章</span>
       </span>
     </div>
@@ -45,40 +43,55 @@
     <!---内容左边部分-->
     <div class="main_left">
       <div class="body_left">
-        <a [routerLink]="['category']">
+        <a *ngFor="let category of categorys">
           <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
+          <span>{{category.categoryname}}</span>
         </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
+
       </div>
       <div class="split-line"></div>
       <!---作者及其书籍介绍-->
       <div class="introduce">
         <!--需要渲染的部分-->
-        <div class="author">
+        <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+
+
+        <div  class="author" *ngFor="let blog of blogs">
+          <a>
+            <span><img src="../../assets/images/category-1.png" alt=""></span>
+            <span class="author_name">{{blog.author}}</span>
+            <small>{{blog.created_at}}</small>
+          </a>
+          <div class="author_title">
+            <a href="" >{{blog.title}}</a>
+          </div>
+          <p class="author_content">
+            {{blog.content}}
+          </p>
+          <div class="meta">
+            <a href="" class="meta_theme">
+              {{blog.categoryname}}
+            </a>
+            <a href="">
+              <img  src="../../assets/images/eye.png" alt="">
+              424
+            </a>
+            <a href="">
+              <img src="../../assets/images/response.png" alt="">
+              43432
+            </a>
+            <a>
+              <img class="meta_ico" src="../../assets/images/heart.png" alt="">
+              {{blog.like_count}}
+            </a>
+          </div>
+        </div>
+
+
+        <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+
+
+        <div  class="author">
           <a>
             <span><img src="../../assets/images/category-1.png" alt=""></span>
             <span class="author_name">达芬奇</span>

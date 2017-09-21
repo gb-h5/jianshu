@@ -1,11 +1,68 @@
 <div class="container">
   <div class="row">
-    <div class="author">
-      <div class="head">
-        <img src="../../assets/images/head.jpg" alt="">
+    <!--&gt;>>>>>>>>>>>>>>-->
+    <div  class="author" *ngFor="let perBlogs of blogs">
+      <a>
+        <span><img src="../../assets/images/category-1.png" alt=""></span>
+        <span class="author_name">{{perBlogs.author}}</span>
+        <small>{{perBlogs.created_at}}</small>
+      </a>
+      <div class="author_title">
+        <a href="" >{{perBlogs.title}}</a>
       </div>
-      <div class="details">
-        <div class="user-name">心照人不宣</div>
+      <p class="author_content">
+        {{perBlogs.content}}
+      </p>
+      <div class="meta">
+        <a href="" class="meta_theme">
+          {{perBlogs.categoryname}}
+        </a>
+        <a href="">
+          <img  src="../../assets/images/eye.png" alt="">
+          424
+        </a>
+        <a href="">
+          <img src="../../assets/images/response.png" alt="">
+          43432
+        </a>
+        <a>
+          <img class="meta_ico" src="../../assets/images/heart.png" alt="">
+          {{perBlogs.like_count}}
+        </a>
+      </div>
+    </div>
+    <!-- >>>>>>>>>>>>>>>>>>>>>>-->
+
+
+
+    <div  class="author">
+      <a>
+        <span><img src="../../assets/images/category-1.png" alt=""></span>
+        <span class="author_name">{{_nickname}}</span>
+        <small>ffffff</small>
+      </a>
+      <div class="author_title">
+        <a href="" >ggggggg</a>
+      </div>
+      <p class="author_content">
+        dgssggfgjgjhhhgghjhjjjhjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+      </p>
+      <div class="meta">
+        <a href="" class="meta_theme">
+          ddadfdf
+        </a>
+        <a href="">
+          <img  src="../../assets/images/eye.png" alt="">
+          424
+        </a>
+        <a href="">
+          <img src="../../assets/images/response.png" alt="">
+          43432
+        </a>
+        <a>
+          <img class="meta_ico" src="../../assets/images/heart.png" alt="">
+          2
+        </a>
       </div>
     </div>
   </div>

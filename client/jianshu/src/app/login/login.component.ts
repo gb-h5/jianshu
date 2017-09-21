@@ -21,8 +21,10 @@ export class LoginComponent {
   ) { }
 
   ngOnInit() {
-    this.glo.hiddenNavs = false;
-    console.log('init' + this.glo.hiddenNavs);
+    var token = sessionStorage.getItem('token')
+    if (sessionStorage.getItem('token')) {
+      this.router.navigate(['/home']);
+    }
   }
   ngOnDestroy() {
     this.glo.hiddenNavs = true;

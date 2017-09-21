@@ -44,7 +44,6 @@ router.post('/api/register', function(req, res, next) {
                 })
                 return
             }
-            //像这里就不用写else
             res.json({
                 "success": false,
                 "code": 1,
@@ -84,20 +83,63 @@ router.post('/api/login', function(req, res, next) {
 
     return
 });
+router.get('/api/getBlog',function (req, res,next) {
+    userdao.getBlog(function (result) {
+        // console.log(result)
+        res.json({
+            success: true,
+            code: 0,
+            data:result,
+            message: '查询成功'
+        })
+
+    })
+});
+
+router.get('/api/getCategory',function (req, res,next) {
+    userdao.getCategory(function (result) {
+        // console.log(result)
+        res.json({
+            success: true,
+            code: 0,
+            data:result,
+            message: '查询成功'
+        })
+
+    })
+});
 
 router.get('/api/getUser',ct.checkToken,function (req, res, next) {
 
     var decoded = jwt.decode(req.header('token'), utils.secret);
     var userTel=decoded.iss;
-    console.log(userTel)
-    res.json({"userTel":userTel})
+    userdao.getUser(userTel,function (result) {
+        console.log(result);
+        res.json({
+            success: true,
+            code: 0,
+            data:result,
+            message: '查询成功'
+        })
 
-    // console.log('headers');
-    // console.log(req.headers);
-    // console.log(req.header('token'));
-    //
-    // console.log('query');
-    // console.log(req.query);
+    })
 });
+
+router.get('/api/getPerBlog',function (req, res, next) {
+
+    var decoded = jwt.decode(req.header('token'), utils.secret);
+    var userTel=decoded.iss;
+    userdao.getPerBlog(userTel,function (result) {
+        console.log(result);
+        res.json({
+            success: true,
+            code: 0,
+            data:result,
+            message: '查询成功'
+        })
+
+    })
+});
+
 
 module.exports = router;

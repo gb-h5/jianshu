@@ -14,13 +14,13 @@ export class AppComponent  {
   ) { }
 
   ngOnInit() {
-    this.hiddenNavs = this.glo.hiddenNavs;
+    // this.hiddenNavs = this.glo.hiddenNavs;
   }
   ngAfterContentChecked() {
-    this.hiddenNavs = this.glo.hiddenNavs;
+    // this.hiddenNavs = this.glo.hiddenNavs;
   }
   ngOnDestroy() {
-    this.glo.hiddenNavs = false;
+    // this.glo.hiddenNavs = false;
   }
 }
 

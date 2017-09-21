@@ -45,40 +45,55 @@
     <!---内容左边部分-->
     <div class="main_left">
       <div class="body_left">
-        <a [routerLink]="['category']">
+        <a *ngFor="let category of categorys">
           <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
+          <span>{{category.categoryname}}</span>
         </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
-        <a>
-          <img src="../../assets/images/category-1.png" alt="">
-          <span>微小说</span>
-        </a>
+
       </div>
       <div class="split-line"></div>
       <!---作者及其书籍介绍-->
       <div class="introduce">
         <!--需要渲染的部分-->
-        <div class="author">
+        <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+
+
+        <div  class="author" *ngFor="let blog of blogs">
+          <a>
+            <span><img src="../../assets/images/category-1.png" alt=""></span>
+            <span class="author_name">{{blog.author}}</span>
+            <small>{{blog.created_at}}</small>
+          </a>
+          <div class="author_title">
+            <a href="" >{{blog.title}}</a>
+          </div>
+          <p class="author_content">
+            {{blog.content}}
+          </p>
+          <div class="meta">
+            <a href="" class="meta_theme">
+              {{blog.categoryname}}
+            </a>
+            <a href="">
+              <img  src="../../assets/images/eye.png" alt="">
+              424
+            </a>
+            <a href="">
+              <img src="../../assets/images/response.png" alt="">
+              43432
+            </a>
+            <a>
+              <img class="meta_ico" src="../../assets/images/heart.png" alt="">
+              {{blog.like_count}}
+            </a>
+          </div>
+        </div>
+
+
+        <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+
+
+        <div  class="author">
           <a>
             <span><img src="../../assets/images/category-1.png" alt=""></span>
             <span class="author_name">达芬奇</span>

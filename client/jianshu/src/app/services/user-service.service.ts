@@ -20,11 +20,33 @@ export class UserServiceService {
     });
   }
 
-  getUser(token,callback) {
+  getUser(token, callback) {
     let _head = new HttpHeaders({token: sessionStorage.getItem('token')});
     this.http.get('/api/getUser', {headers: _head}).subscribe(function (result) {
       callback(result);
     });
-  }}
+  }
+
+  getBlog(callback) {
+    this.http.get('/api/getBlog').subscribe(function (result) {
+      callback(result);
+    });
+  }
+
+  getCategory(callback) {
+    this.http.get('/api/getCategory').subscribe(function (result) {
+      callback(result);
+    });
+  }
+
+  getPerBlog(token, callback) {
+    let _head = new HttpHeaders({token: sessionStorage.getItem('token')});
+    this.http.get('/api/getPerBlog', {headers: _head}).subscribe(function (result) {
+      callback(result);
+    });
+  }
+
+
+}
 
 
