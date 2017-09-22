@@ -45,7 +45,7 @@
     <!---内容左边部分-->
     <div class="main_left">
       <div class="body_left">
-        <a *ngFor="let category of categorys">
+        <a [routerLink]="['/concern']"  *ngFor="let category of categorys">
           <img src="../../assets/images/category-1.png" alt="">
           <span>{{category.categoryname}}</span>
         </a>

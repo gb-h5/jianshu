@@ -21,6 +21,8 @@ import {UserServiceService} from './services/user-service.service';
 import { LocalStorage } from './services/localStorage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { SettingComponent } from './setting/setting.component';
+import { ConcrenComponent } from './concren/concren.component';
 // import { provideRoutes} from '@angular/router';
 
 @NgModule({
@@ -31,6 +33,8 @@ import { HomeComponent } from './home/home.component';
     StartComponent,
     IndexComponent,
     HomeComponent,
+    SettingComponent,
+    ConcrenComponent,
   ],
   imports: [
     BrowserModule,

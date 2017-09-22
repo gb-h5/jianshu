@@ -179,4 +179,71 @@ exports.userDao= {
         })
     },
 
+    getPerLike: function (tel,callback) {
+        pool.getConnection(function (error, client) {
+            if (error) {
+                return
+            }
+            var query = 'SELECT blog.*,`user`.nickname AS author, category.categoryname, count(distinct `like`.like_id) as like_count'
+            +' FROM blog'
+            +' LEFT JOIN `like` ON blog.blog_id = `like`.blog_id'
+            +' LEFT JOIN `category` ON blog.category_id = `category`.category_id'
+            +' LEFT JOIN `user` ON blog.user_id = `user`.userid WHERE `like`.user_id=(SELECT `user`.userid FROM `user` WHERE `user`.tele=?)'
+            +' GROUP BY blog.blog_id  '
+
+            client.query(query,[tel], function (error, result) {
+                if (error) {
+                    callback('e004');
+                    return;
+                }
+                callback(result);
+                client.release();
+            })
+        })
+    },
+
+    getPerCollection: function (tel,callback) {
+        pool.getConnection(function (error, client) {
+            if (error) {
+                return
+            }
+            var query = 'SELECT blog.*,`user`.nickname AS author, category.categoryname, count(distinct `like`.like_id) as like_count'
+            +' FROM blog'
+            +' LEFT JOIN `like` ON blog.blog_id = `like`.blog_id'
+            +' LEFT JOIN `collection` ON blog.blog_id = `collection`.blog_id'
+            +' LEFT JOIN `category` ON blog.category_id = `category`.category_id'
+            +' LEFT JOIN `user` ON blog.user_id = `user`.userid WHERE `collection`.user_id  =(SELECT `user`.userid FROM `user` WHERE `user`.tele=?)'
+            +' GROUP BY blog.blog_id '
+
+            client.query(query,[tel], function (error, result) {
+                if (error) {
+                    callback('e004');
+                    return;
+                }
+                callback(result);
+                client.release();
+            })
+        })
+    },
+
+
+    getfollowed: function (tel,callback) {
+        pool.getConnection(function (error, client) {
+            if (error) {
+                return
+            }
+            var query = 'SELECT * FROM `user` WHERE `user`.userid IN (SELECT `follow`.followed FROM `user` LEFT JOIN `follow` ON `user`.userid = `follow`.following'
+            +' WHERE `user`.tele = ? GROUP BY `follow`.followed)'
+
+            client.query(query,[tel], function (error, result) {
+                if (error) {
+                    callback('e004');
+                    return;
+                }
+                callback(result);
+                client.release();
+            })
+        })
+    },
+
 }

@@ -5,14 +5,14 @@ import {UserServiceService} from './../../services/user-service.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-my-collection',
-  templateUrl: './my-collection.component.html',
-  styleUrls: ['./my-collection.component.css']
+  selector: 'app-my-followed',
+  templateUrl: './my-followed.component.html',
+  styleUrls: ['./my-followed.component.css']
 })
-export class MyCollectionComponent implements OnInit {
+export class MyFollowedComponent implements OnInit {
 
   user: any;
-  blogs: any;
+  followed: any;
   categorys: any;
   _nickname: any;
   constructor(
@@ -37,9 +37,9 @@ export class MyCollectionComponent implements OnInit {
       // });
 
 
-      that.userSer.getPerCollection(token,function (result) {
-        that.blogs = result.data;
-        console.log(that.blogs);
+      that.userSer.getfollowed(token, function (result) {
+        that.followed = result.data;
+        console.log(that.followed);
       });
     }
   }

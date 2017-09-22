@@ -45,6 +45,25 @@ export class UserServiceService {
       callback(result);
     });
   }
+  getPerLike(token, callback) {
+    let _head = new HttpHeaders({token: sessionStorage.getItem('token')});
+    this.http.get('/api/getPerLike', {headers: _head}).subscribe(function (result) {
+      callback(result);
+    });
+  }
+  getPerCollection(token, callback) {
+    let _head = new HttpHeaders({token: sessionStorage.getItem('token')});
+    this.http.get('/api/getPerCollection', {headers: _head}).subscribe(function (result) {
+      callback(result);
+    });
+  }
+
+  getfollowed(token, callback) {
+    let _head = new HttpHeaders({token: sessionStorage.getItem('token')});
+    this.http.get('/api/getfollowed', {headers: _head}).subscribe(function (result) {
+      callback(result);
+    });
+  }
 
 
 }

@@ -30,7 +30,7 @@ export class RegisterComponent {
     let that = this;
     that.userSer.register(login_form.form.value, function (result) {
       console.log(login_form.form.value);
-      alert("here"+result.code)
+      // alert("here"+result.code)
       if(result.success === true) {
         sessionStorage.setItem('token',result.token)
         alert(sessionStorage.getItem('token'))

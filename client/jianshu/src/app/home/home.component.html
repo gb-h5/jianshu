@@ -16,7 +16,7 @@
         <input class="top_search_text" type="text" placeholder="搜索">
         <span><img src="../../assets/images/search.png" alt="" ></span>
       </div>
-      <span class="top_letter"><img src="../../assets/images/Aa.png" alt=""></span>
+      <a [routerLink]="['/setting']"><span class="top_letter"><img src="../../assets/images/setting.png" alt=""></span></a>
     </div>
 
     <div class="top_container_right">
@@ -43,7 +43,7 @@
     <!---内容左边部分-->
     <div class="main_left">
       <div class="body_left">
-        <a *ngFor="let category of categorys">
+        <a [routerLink]="['/concern']" *ngFor="let category of categorys">
           <img src="../../assets/images/category-1.png" alt="">
           <span>{{category.categoryname}}</span>
         </a>

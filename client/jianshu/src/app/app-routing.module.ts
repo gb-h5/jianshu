@@ -9,9 +9,11 @@ import { PersonalCenterComponent } from './personal-center/personal-center.compo
 import { MyCollectionComponent } from './personal-center/my-collection/my-collection.component';
 import { MyLikeComponent } from './personal-center/my-like/my-like.component';
 import { PerIndexComponent } from './personal-center/per-index/per-index.component';
+import { ConcrenComponent } from './concren/concren.component';
 
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import { SettingComponent } from './setting/setting.component';
 const  appRoute: Routes = [
   {
     path: 'index',
@@ -36,6 +38,14 @@ const  appRoute: Routes = [
   {
     path: 'PersonalCenter',
     component: PersonalCenterComponent,
+  },
+  {
+    path: 'setting',
+    component: SettingComponent,
+  },
+  {
+    path: 'concern',
+    component: ConcrenComponent,
   }
 
 ];

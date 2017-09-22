@@ -114,7 +114,7 @@ router.get('/api/getUser',ct.checkToken,function (req, res, next) {
     var decoded = jwt.decode(req.header('token'), utils.secret);
     var userTel=decoded.iss;
     userdao.getUser(userTel,function (result) {
-        console.log(result);
+        // console.log(result);
         res.json({
             success: true,
             code: 0,
@@ -130,7 +130,7 @@ router.get('/api/getPerBlog',function (req, res, next) {
     var decoded = jwt.decode(req.header('token'), utils.secret);
     var userTel=decoded.iss;
     userdao.getPerBlog(userTel,function (result) {
-        console.log(result);
+        // console.log(result);
         res.json({
             success: true,
             code: 0,
@@ -141,5 +141,52 @@ router.get('/api/getPerBlog',function (req, res, next) {
     })
 });
 
+
+router.get('/api/getPerLike',function (req, res, next) {
+
+    var decoded = jwt.decode(req.header('token'), utils.secret);
+    var userTel=decoded.iss;
+    userdao.getPerLike(userTel,function (result) {
+        // console.log(result);
+        res.json({
+            success: true,
+            code: 0,
+            data:result,
+            message: '查询成功'
+        })
+
+    })
+});
+router.get('/api/getPerCollection',function (req, res, next) {
+
+    var decoded = jwt.decode(req.header('token'), utils.secret);
+    var userTel=decoded.iss;
+    userdao.getPerCollection(userTel,function (result) {
+        // console.log(result);
+        res.json({
+            success: true,
+            code: 0,
+            data:result,
+            message: '查询成功'
+        })
+
+    })
+});
+
+router.get('/api/getfollowed',function (req, res, next) {
+
+    var decoded = jwt.decode(req.header('token'), utils.secret);
+    var userTel=decoded.iss;
+    userdao.getfollowed(userTel,function (result) {
+        console.log(result);
+        res.json({
+            success: true,
+            code: 0,
+            data:result,
+            message: '查询成功'
+        })
+
+    })
+});
 
 module.exports = router;

@@ -40,11 +40,12 @@ export class LoginComponent {
         sessionStorage.setItem('token',result.token)
         // that.localstorage.set('token',result.token);
         // alert('token'+that.localstorage.get('token'));
-        alert(sessionStorage.getItem('token'))
+        // alert(sessionStorage.getItem('token'))
         that.router.navigate(['/home']);
       }else {
-        alert(result.code);
+
         that.login_res = '用户名或密码错误';
+        alert(that.login_res);
       }
     });
   }

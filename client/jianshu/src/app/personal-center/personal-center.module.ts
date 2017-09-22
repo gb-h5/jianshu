@@ -13,13 +13,17 @@ import { MyCollectionComponent } from './my-collection/my-collection.component';
 import { MyLikeComponent } from './my-like/my-like.component';
 import {GlobalPropertyService} from './../services/global-property.service';
 import { MyBlogComponent } from './my-blog/my-blog.component';
+import { MyFollowedComponent } from './my-followed/my-followed.component';
+import { MyFansComponent } from './my-fans/my-fans.component';
 @NgModule({
   declarations: [
     PersonalCenterComponent,
     PerIndexComponent,
     MyCollectionComponent,
     MyLikeComponent,
-    MyBlogComponent
+    MyBlogComponent,
+    MyFollowedComponent,
+    MyFansComponent
   ],
   imports: [
     BrowserModule,
