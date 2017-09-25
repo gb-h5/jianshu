@@ -1,4 +1,6 @@
-
+li:focus{
+  outline:0 !important;
+}
 body{
   padding:0;
   height:0;
@@ -26,13 +28,14 @@ body{
   float:left;
 }
 .top_container_center{
-  width:60vw;
+  width:40vw;
   /*min-width:800px;*/
   display: inline-block;
   float:left;
 }
 .top_container_right{
-  width:15vw;
+  width:18vw;
+  float: right;
   /*min-width:200px;*/
   display: inline-block;
   float:left;
@@ -127,10 +130,12 @@ body{
   text-decoration: none;
 }
 .top_register:hover{
+
   color: #ec6149;
   border-color: #ec6149;
   background-color: rgba(236,97,73,.05);
 }
+
 .top_write{
   width:100px;
   height:38px;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorage } from '../services/localStorage.service';
 import {Router} from '@angular/router';
 import {UserServiceService} from './../services/user-service.service';
+import { GlobalPropertyService } from './../services/global-property.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class IndexComponent implements OnInit {
   constructor(
     private userSer: UserServiceService,
     private localstorage: LocalStorage,
+    private glo: GlobalPropertyService,
     private router: Router
   ) { }
 
@@ -40,5 +42,15 @@ export class IndexComponent implements OnInit {
 
     }
   }
+  toArticle(blogId){
+    let that = this;
+    // console.log( blogId );
+    that.userSer.toArticle(blogId, function (result) {
+      that.glo.article = result.data;
+      // alert(result.userTel);
+    });
+
+  }
 
 }
+

@@ -4,5 +4,6 @@ import { Injectable } from '@angular/core';
 export class GlobalPropertyService {
   hiddenNavs= true;
   username: any;
+  article: any;
 }
 

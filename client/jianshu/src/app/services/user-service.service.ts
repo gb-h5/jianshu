@@ -65,6 +65,22 @@ export class UserServiceService {
     });
   }
 
+  getfans(token, callback) {
+    let _head = new HttpHeaders({token: sessionStorage.getItem('token')});
+    this.http.get('/api/getfans', {headers: _head}).subscribe(function (result) {
+      callback(result);
+    });
+  }
+
+  toArticle(id, callback) {
+    // console.log('server>>>>>>>'+id)
+    // let _head = new HttpHeaders({blogId: id});
+    let param=new HttpParams().set('blogId',id);
+    this.http.get('/api/toArticle', {params:param} ).subscribe(function(result){
+      callback(result);
+    });
+  }
+
 
 }
 

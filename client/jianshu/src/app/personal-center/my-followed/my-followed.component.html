@@ -1,11 +1,9 @@
 <div class="container">
   <div class="arrow">
-
-
     <div  class="author" *ngFor="let myfollowed of followed">
       <a>
         <span><img src="../../assets/images/category-1.png" alt=""></span>
-        <span class="author_name">{{_nickname}}</span>
+        <span class="author_name">{{myfollowed.nickname}}</span>
 
       </a>
       <div class="author_title">

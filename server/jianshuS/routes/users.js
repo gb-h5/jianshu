@@ -178,7 +178,7 @@ router.get('/api/getfollowed',function (req, res, next) {
     var decoded = jwt.decode(req.header('token'), utils.secret);
     var userTel=decoded.iss;
     userdao.getfollowed(userTel,function (result) {
-        console.log(result);
+        // console.log(result);
         res.json({
             success: true,
             code: 0,
@@ -187,6 +187,76 @@ router.get('/api/getfollowed',function (req, res, next) {
         })
 
     })
+});
+router.get('/api/getfans',function (req, res, next) {
+
+    var decoded = jwt.decode(req.header('token'), utils.secret);
+    var userTel=decoded.iss;
+    return res.json({
+        id: 0,
+        nickname: '',
+        fans: 0
+    })
+    return
+
+    var fans = (function (userTel) {
+        return userdao.getfans(userTel, function (users) {
+            return users;
+        })
+    })()
+    console.log(fans)
+    var dataArr = [];
+    for(var i = 0; i < users.length; i++){
+        var user = users[i]
+        var fansCount = (function (count) {
+            var count = 0
+            userdao.getfansCount(user.userid, function (result) {
+                return count = result.fansCount
+            })
+            return count
+        })(user)
+        dataArr.push(
+            {
+                id: user.userid,
+                nickname: user.nickname,
+                fans: fansCount
+            }
+        )
+    }
+    res.json({
+        success: true,
+        code: 0,
+        data: dataArr,
+        message: '查询成功'
+    })
+});
+
+router.get('/api/toArticle',function (req, res, next) {
+
+    // console.log(req.headers('blogId'))
+    // console.log(req.query.blogId);
+    var blogId=req.query.blogId;
+    userdao.toArticle(blogId,function (result) {
+        // console.log(result);
+        res.json({
+            success: true,
+            code: 0,
+            data:result,
+            message: '查询成功'
+        })
+
+    })
+
+
+    // userdao.toArticle(userTel, function (result) {
+    //     // console.log(result);
+    //     res.json({
+    //         success: true,
+    //         code: 0,
+    //         data: result,
+    //         message: '查询成功'
+    //     })
+    // });
 });
 
 module.exports = router;

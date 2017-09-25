@@ -65,7 +65,7 @@
             <small>{{blog.created_at}}</small>
           </a>
           <div class="author_title">
-            <a href="" >{{blog.title}}</a>
+            <a [routerLink]="['/article']" (click)="toArticle(blog.blog_id)">{{blog.title}}</a>
           </div>
           <p class="author_content">
             {{blog.content}}

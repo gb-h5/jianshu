@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { SettingComponent } from './setting/setting.component';
 import { ConcrenComponent } from './concren/concren.component';
+import { ArticleComponent } from './article/article.component';
 // import { provideRoutes} from '@angular/router';
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ConcrenComponent } from './concren/concren.component';
     HomeComponent,
     SettingComponent,
     ConcrenComponent,
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,

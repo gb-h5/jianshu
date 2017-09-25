@@ -1,0 +1,29 @@
+.author{
+  padding-top:10px;
+  margin-bottom:10px;
+  padding-bottom:20px;
+  border-bottom:1px solid #f0f0f0;
+
+}
+.author a {
+  display: inline-block;
+}
+.author a img{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+}
+.author a span{
+  display: inline-block;
+  vertical-align: middle;
+}
+.meta ul{
+  list-style: none;
+}
+.meta ul li{
+  color: #9696a3;
+  float: left;
+  font-size: 2rem;
+  margin-right: 5px;
+  padding: 5px;
+}

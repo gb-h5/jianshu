@@ -14,6 +14,7 @@ import { ConcrenComponent } from './concren/concren.component';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import { SettingComponent } from './setting/setting.component';
+import { ArticleComponent } from './article/article.component';
 const  appRoute: Routes = [
   {
     path: 'index',
@@ -46,6 +47,9 @@ const  appRoute: Routes = [
   {
     path: 'concern',
     component: ConcrenComponent,
+  },{
+    path: 'article',
+    component: ArticleComponent,
   }
 
 ];

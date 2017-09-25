@@ -245,5 +245,64 @@ exports.userDao= {
             })
         })
     },
+    getfans: function (tel,callback) {
+        pool.getConnection(function (error, client) {
+            if (error) {
+                return
+            }
+            var query = 'SELECT `user`.* FROM `user` WHERE `user`.userid IN (SELECT `follow`.following FROM `user` LEFT JOIN `follow` ON `user`.userid = `follow`.followed'
+            +' WHERE `user`.tele = ? GROUP BY `follow`.following)'
+
+            client.query(query,[tel], function (error, result) {
+                if (error) {
+                    callback('e004');
+                    return;
+                }
+                callback(result);
+                client.release();
+            })
+        })
+    },
+    getfansCount: function (userId,callback) {
+        pool.getConnection(function (error, client) {
+            if (error) {
+                return
+            }
+            var query = 'SELECT count(*) as fansCount FROM `follow` WHERE followed = ?'
+
+            client.query(query,[userId], function (error, result) {
+                if (error) {
+                    callback('e004');
+                    return;
+                }
+                callback(result[0]);
+                client.release();
+            })
+        })
+    },
+
+
+    toArticle: function (blogid,callback) {
+        pool.getConnection(function (error, client) {
+            if (error) {
+                return
+            }
+            var query = 'SELECT blog.*,`user`.nickname AS author, category.categoryname, count(distinct `like`.like_id) as like_count'
+            +' FROM blog'
+            +' LEFT JOIN `like` ON blog.blog_id = `like`.blog_id'
+            +' LEFT JOIN `category` ON blog.category_id = `category`.category_id'
+            +' LEFT JOIN `user` ON blog.user_id = `user`.userid WHERE `blog`.blog_id=?'
+            +' GROUP BY blog.blog_id  '
+
+            client.query(query,[blogid], function (error, result) {
+                if (error) {
+                    callback('e004');
+                    return;
+                }
+                callback(result);
+                client.release();
+            })
+        })
+    },
 
 }
